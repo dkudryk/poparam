@@ -1,0 +1,45 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+	"extends": [
+		"eslint:recommended",
+		"plugin:react/recommended",
+		"plugin:prettier/recommended"
+	],
+  "settings": {
+		"react": {
+			"version": "detect"
+		}
+	},
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+		"indent": [
+			"error", 	2, { "MemberExpression": 1 }
+		],
+		"linebreak-style": [
+			"error",
+			"unix"
+		],
+		"quotes": [
+			"error",
+			"single"
+		],
+		"semi": [
+			"error",
+			"never"
+		],
+		"prettier/prettier": [
+			"error",
+			{
+				"trailingComma": "es5",
+				"singleQuote": true,
+				"printWidth": 80,
+				"semi": false
+			}
+		],
+		"no-unused-vars": "off"
+  }
+}
