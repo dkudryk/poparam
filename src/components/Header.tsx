@@ -5,7 +5,7 @@ function Header() {
     <div className="pt-10 bg-black sm:pt-16 lg:pt-8 lg:pb-14 lg:overflow-hidden">
       <div className="mx-auto max-w-7xl lg:px-8">
         <div className="lg:grid lg:grid-cols-2 lg:gap-8">
-          <div className="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 sm:text-center lg:px-0 lg:text-left lg:flex lg:items-center">
+          <div className="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 sm:text-center lg:px-0 lg:text-left lg:flex lg:items-center z-10">
             <div className="lg:py-24">
               <h1 className="mt-4 text-3xl tracking-tight font-extrabold text-white sm:mt-5 sm:text-5xl lg:mt-6 xl:text-6xl">
                 <span className="block">Благодійний фонд</span>
@@ -24,7 +24,7 @@ function Header() {
           <div className="mt-12 -mb-0 sm:-mb-18 lg:m-0 lg:relative">
             <div className="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 lg:max-w-none lg:px-0">
               <img
-                className="w-full lg:absolute lg:inset-y-0 lg:right-0 lg:h-full lg:w-auto lg:max-w-none"
+                className="w-full lg:absolute lg:top-1/2 lg:transform lg:-translate-y-1/2 lg:right-0 lg:h-auto lg:w-auto lg:max-w-full"
                 src={HeaderImage}
                 alt=""
               />
