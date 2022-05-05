@@ -114,7 +114,7 @@ function Navigation() {
               <div className="mt-6 px-5">
                 <a
                   href="#"
-                  className="block text-center w-full py-3 px-4 rounded-md shadow bg-gradient-to-r text-white font-medium bg-gray-600 hover:bg-gray-700"
+                  className="flex items-center justify-center w-full py-3 px-4 rounded-md shadow bg-gradient-to-r text-white font-medium bg-gray-600 hover:bg-gray-700"
                 >
                   Дізнатись більше
                   <ExternalLinkIcon

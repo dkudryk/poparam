@@ -20,3 +20,11 @@ body,
 #root {
   @apply flex flex-col;
 }
+
+#lightbox div {
+  @apply z-10;
+}
+
+#lightbox iframe {
+  @apply h-full w-full;
+}

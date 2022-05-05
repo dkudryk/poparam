@@ -2,6 +2,7 @@ import ReactImageVideoLightbox from 'react-image-video-lightbox'
 import { useState } from 'react'
 
 import { PlayIcon } from '@heroicons/react/solid'
+import { createPortal } from 'react-dom'
 
 const data = [
   {
@@ -132,14 +133,18 @@ function Gallery() {
           </ul>
         </div>
       </div>
-      {open && (
-        <ReactImageVideoLightbox
-          data={data}
-          startIndex={currentIndex}
-          showResourceCount={true}
-          onCloseCallback={() => setOpen(false)}
-        />
-      )}
+      {open &&
+        createPortal(
+          <div id="lightbox">
+            <ReactImageVideoLightbox
+              data={data}
+              startIndex={currentIndex}
+              showResourceCount={true}
+              onCloseCallback={() => setOpen(false)}
+            />
+          </div>,
+          document.body,
+        )}
     </div>
   )
 }
