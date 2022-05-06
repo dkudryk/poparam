@@ -32,8 +32,10 @@ function Partners() {
           <div className="mt-8">
             <div className="inline-flex rounded-md shadow">
               <a
-                href="#"
+                href="https://www.instagram.com/anton.nesterko"
                 className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-gray-900 bg-white hover:bg-gray-50"
+                target="_blank"
+                rel="noreferrer"
               >
                 Дізнатись більше
                 <ExternalLinkIcon

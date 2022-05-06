@@ -6,47 +6,107 @@ import { createPortal } from 'react-dom'
 
 const data = [
   {
-    url: '/images/img-1.jpg',
+    url: '/images/IMG_4889.jpg',
     type: 'photo',
     altTag: '',
   },
   {
-    url: '/images/img-2.jpg',
+    url: '/images/IMG_4871.jpg',
     type: 'photo',
     altTag: '',
   },
   {
-    url: '/images/img-3.jpg',
+    url: '/images/IMG_4597.JPG',
     type: 'photo',
     altTag: '',
   },
   {
-    url: '/images/img-4.jpg',
+    url: '/images/IMG_4485.PNG',
     type: 'photo',
     altTag: '',
   },
   {
-    url: '/images/img-5.jpg',
+    url: '/images/IMG_4492.PNG',
     type: 'photo',
     altTag: '',
   },
   {
-    url: '/images/img-6.jpg',
+    url: '/images/IMG_4488.PNG',
     type: 'photo',
     altTag: '',
   },
   {
-    url: '/images/img-7.jpg',
+    url: '/images/IMG_4487.PNG',
     type: 'photo',
     altTag: '',
   },
   {
-    url: '/images/img-8.jpg',
+    url: '/images/IMG_4446.jpg',
     type: 'photo',
     altTag: '',
   },
   {
-    url: '/images/img-9.jpg',
+    url: '/images/IMG_3951.PNG',
+    type: 'photo',
+    altTag: '',
+  },
+  {
+    url: '/images/IMG_3426.PNG',
+    type: 'photo',
+    altTag: '',
+  },
+  {
+    url: '/images/IMG_5907.JPG',
+    type: 'photo',
+    altTag: '',
+  },
+  {
+    url: '/images/IMG_5871.jpg',
+    type: 'photo',
+    altTag: '',
+  },
+  {
+    url: '/images/IMG_5822.JPG',
+    type: 'photo',
+    altTag: '',
+  },
+  {
+    url: '/images/IMG_5761.JPG',
+    type: 'photo',
+    altTag: '',
+  },
+  {
+    url: '/images/IMG_5586.jpg',
+    type: 'photo',
+    altTag: '',
+  },
+  {
+    url: '/images/IMG_5495.JPG',
+    type: 'photo',
+    altTag: '',
+  },
+  {
+    url: '/images/IMG_5283.jpg',
+    type: 'photo',
+    altTag: '',
+  },
+  {
+    url: '/images/IMG_5153.jpg',
+    type: 'photo',
+    altTag: '',
+  },
+  {
+    url: '/images/IMG_4988.PNG',
+    type: 'photo',
+    altTag: '',
+  },
+  {
+    url: '/images/IMG_3338.jpg',
+    type: 'photo',
+    altTag: '',
+  },
+  {
+    url: '/images/IMG_2916.PNG',
     type: 'photo',
     altTag: '',
   },
@@ -56,18 +116,18 @@ const data = [
     type: 'video',
     title: '',
   },
-  {
-    url: '/video/video-2.mp4',
-    thumbnail: '/video/video-2.jpg',
-    type: 'video',
-    title: '',
-  },
-  {
-    url: '/video/video-3.mp4',
-    thumbnail: '/video/video-3.jpg',
-    type: 'video',
-    title: '',
-  },
+  // {
+  //   url: '/video/video-2.mp4',
+  //   thumbnail: '/video/video-2.jpg',
+  //   type: 'video',
+  //   title: '',
+  // },
+  // {
+  //   url: '/video/video-3.mp4',
+  //   thumbnail: '/video/video-3.jpg',
+  //   type: 'video',
+  //   title: '',
+  // },
 ]
 
 function Gallery() {

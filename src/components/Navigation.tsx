@@ -29,16 +29,20 @@ function Navigation() {
             <div className="flex items-center justify-between w-full md:w-auto">
               <div>
                 <span className="sr-only">Workflow</span>
-                <img className="h-12 w-auto sm:h-14" src={BlackLogo} alt="" />
+                <img
+                  className="h-16 w-auto sm:h-20 ml-2 sm:ml-0 sm:-my-2"
+                  src={BlackLogo}
+                  alt=""
+                />
               </div>
-              <div className="-mr-2 flex items-center md:hidden">
+              <div className="flex items-center md:hidden">
                 <Popover.Button className="bg-gray-900 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-800 focus:outline-none focus:ring-2 focus-ring-inset focus:ring-white">
                   <span className="sr-only">Open main menu</span>
                   <MenuIcon className="h-6 w-6" aria-hidden="true" />
                 </Popover.Button>
               </div>
             </div>
-            <div className="hidden space-x-8 md:flex md:ml-10">
+            <div className="hidden space-x-8 md:flex md:ml-4 lg:ml-10">
               {navigation.map(item => (
                 <a
                   key={item.name}
@@ -56,8 +60,10 @@ function Navigation() {
           </div>
           <div className="hidden md:flex md:items-center md:space-x-6">
             <a
-              href="#"
+              href="https://www.instagram.com/anton.nesterko"
               className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700"
+              target="_blank"
+              rel="noreferrer"
             >
               <span className="hidden lg:inline-block">Дізнатись більше</span>
               <span className="lg:hidden">Більше</span>
@@ -86,7 +92,7 @@ function Navigation() {
           <div className="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
             <div className="px-5 pt-4 flex items-center justify-between">
               <div>
-                <img className="h-14 w-auto" src={WhiteLogo} alt="" />
+                <img className="h-16 w-auto" src={WhiteLogo} alt="" />
               </div>
               <div className="-mr-2">
                 <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sky-500">
@@ -113,8 +119,10 @@ function Navigation() {
               </div>
               <div className="mt-6 px-5">
                 <a
-                  href="#"
+                  href="https://www.instagram.com/anton.nesterko"
                   className="flex items-center justify-center w-full py-3 px-4 rounded-md shadow bg-gradient-to-r text-white font-medium bg-gray-600 hover:bg-gray-700"
+                  target="_blank"
+                  rel="noreferrer"
                 >
                   Дізнатись більше
                   <ExternalLinkIcon

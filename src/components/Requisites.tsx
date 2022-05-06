@@ -3,9 +3,12 @@ export default function Requisites() {
     <>
       <div className="bg-gray-50">
         <div className="max-w-7xl mx-auto text-center py-20 px-4 sm:px-6 lg:py-24 lg:px-8">
+          <h2 className="mb-10 sm:mb-14 text-3xl font-extrabold sm:text-4xl sm:tracking-tight lg:text-5xl">
+            Реквізити
+          </h2>
           <div className="space-y-10 sm:space-y-20">
             <div>
-              <h2 className="mb-3 sm:mb-6 text-3xl font-extrabold sm:text-4xl sm:tracking-tight lg:text-5xl">
+              <h2 className="mb-2 sm:mb-6 text-2xl font-extrabold sm:text-3xl sm:tracking-tight lg:text-4xl">
                 PayPal
               </h2>
               <div className="text-base text-gray-500 sm:text-2xl lg:text-xl xl:text-2xl">
@@ -13,7 +16,7 @@ export default function Requisites() {
               </div>
             </div>
             <div>
-              <h2 className="mb-3 sm:mb-6 text-2xl font-extrabold sm:text-4xl sm:tracking-tight lg:text-5xl">
+              <h2 className="mb-2 sm:mb-6 text-xl font-extrabold sm:text-3xl sm:tracking-tight lg:text-4xl">
                 4441 1144 5688 0192
               </h2>
               <div className="text-base text-gray-500 sm:text-2xl lg:text-xl xl:text-2xl ">
@@ -65,8 +68,8 @@ export default function Requisites() {
           </div>
         </div>
       </div>
-      <div className="py-12 bg-black text-3xl font-extrabold sm:text-4xl lg:text-5xl text-sky-500 text-center">
-        <span className="text-yellow-300">Разом</span> до перемоги
+      <div className="py-12 bg-black text-2xl font-extrabold sm:text-4xl lg:text-5xl text-sky-500 text-center">
+        <span className="text-yellow-300">Разом</span> до перемоги!
       </div>
     </>
   )
