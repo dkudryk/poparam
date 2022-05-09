@@ -30,7 +30,7 @@ function Navigation() {
               <div>
                 <span className="sr-only">Workflow</span>
                 <img
-                  className="h-16 w-auto sm:h-20 ml-2 sm:ml-0 sm:-my-2"
+                  className="h-20 w-auto ml-2 sm:ml-0 -my-2"
                   src={BlackLogo}
                   alt=""
                 />

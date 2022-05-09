@@ -1,14 +1,16 @@
 import ReactImageVideoLightbox from 'react-image-video-lightbox'
 import { useState } from 'react'
+import { Carousel } from 'react-responsive-carousel'
+import '../../node_modules/react-responsive-carousel/lib/styles/carousel.css'
 
 import { PlayIcon } from '@heroicons/react/solid'
 import { createPortal } from 'react-dom'
 
 const data = [
   {
-    url: '/images/IMG_4889.jpg',
-    type: 'photo',
-    altTag: '',
+    url: '/video/video-1.mp4',
+    thumbnail: '/video/video-1.jpg',
+    type: 'video',
   },
   {
     url: '/images/IMG_4871.jpg',
@@ -111,32 +113,69 @@ const data = [
     altTag: '',
   },
   {
-    url: '/video/video-1.mp4',
-    thumbnail: '/video/video-1.jpg',
-    type: 'video',
-    title: '',
+    url: '/images/IMG_4889.jpg',
+    type: 'photo',
+    altTag: '',
   },
   // {
   //   url: '/video/video-2.mp4',
   //   thumbnail: '/video/video-2.jpg',
   //   type: 'video',
-  //   title: '',
   // },
   // {
   //   url: '/video/video-3.mp4',
   //   thumbnail: '/video/video-3.jpg',
   //   type: 'video',
-  //   title: '',
   // },
 ]
 
 function Gallery() {
   const [open, setOpen] = useState(false)
+  const [list, setList] = useState(
+    data.map(item => ({
+      ...item,
+      isOpen: false,
+    })),
+  )
   const [currentIndex, setCurrentIndex] = useState(0)
 
   const handleClick = (index: number) => {
     setCurrentIndex(index)
     setOpen(true)
+  }
+
+  const handlePlay = (index: number) => {
+    setList(values =>
+      values.map((item, listIndex) => {
+        if (listIndex === index) {
+          return {
+            ...item,
+            isOpen: true,
+          }
+        } else {
+          return item
+        }
+      }),
+    )
+  }
+
+  const handleSwipeEnd = () => {
+    const item = list.find(item => item.isOpen === true)
+    if (item !== undefined) {
+      setList(values =>
+        values.map(item => ({
+          ...item,
+          isOpen: false,
+        })),
+      )
+    }
+  }
+
+  const carouselProps = {
+    dynamicHeight: true,
+    showThumbs: false,
+    showIndicators: false,
+    showStatus: false,
   }
 
   return (
@@ -170,11 +209,46 @@ function Gallery() {
               </p>
             </div>
           </div>
+          <Carousel
+            {...carouselProps}
+            onSwipeEnd={handleSwipeEnd}
+            className="sm:hidden"
+          >
+            {list.map((item, index) => (
+              <div key={index} className="relative">
+                {item.type === 'video' ? (
+                  <>
+                    {item.isOpen ? (
+                      <video
+                        src={item.url}
+                        controls
+                        autoPlay
+                        className="w-full h-full"
+                      />
+                    ) : (
+                      <>
+                        <img src={item.thumbnail} alt="" className="relative" />
+                        <PlayIcon
+                          className="w-16 h-16 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-gray-300 group-hover:text-white"
+                          onClick={e => {
+                            e.stopPropagation()
+                            handlePlay(index)
+                          }}
+                        />
+                      </>
+                    )}
+                  </>
+                ) : (
+                  <img src={item.thumbnail || item.url} alt="" />
+                )}
+              </div>
+            ))}
+          </Carousel>
           <ul
             role="list"
-            className="space-y-12 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 sm:space-y-0 md:grid-cols-3 lg:grid-cols-4 lg:gap-x-8"
+            className="hidden space-y-12 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 sm:space-y-0 md:grid-cols-3 lg:grid-cols-4 lg:gap-x-8"
           >
-            {data.map((item, index) => (
+            {list.map((item, index) => (
               <li
                 key={index}
                 onClick={() => handleClick(index)}
@@ -195,7 +269,7 @@ function Gallery() {
       </div>
       {open &&
         createPortal(
-          <div id="lightbox">
+          <div id="lightbox" className="hidden sm:block">
             <ReactImageVideoLightbox
               data={data}
               startIndex={currentIndex}
