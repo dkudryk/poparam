@@ -13,17 +13,17 @@ const data = [
     type: 'video',
   },
   {
+    url: '/images/IMG_4485.PNG',
+    type: 'photo',
+    altTag: '',
+  },
+  {
     url: '/images/IMG_4871.jpg',
     type: 'photo',
     altTag: '',
   },
   {
     url: '/images/IMG_4597.JPG',
-    type: 'photo',
-    altTag: '',
-  },
-  {
-    url: '/images/IMG_4485.PNG',
     type: 'photo',
     altTag: '',
   },
@@ -180,8 +180,8 @@ function Gallery() {
 
   return (
     <div id="gallery" className="bg-white">
-      <div className="mx-auto py-12 px-4 max-w-7xl sm:px-6 lg:px-8 lg:py-32">
-        <div className="space-y-24">
+      <div className="mx-auto pb-0 pt-12 sm:py-12 px-4 max-w-7xl sm:px-6 lg:px-8 lg:py-32">
+        <div className="space-y-12 sm:space-y-24">
           <div className="max-w-6xl mx-auto">
             <h2 className="mb-12 text-3xl font-extrabold sm:text-4xl sm:tracking-tight lg:text-5xl text-center">
               Діяльність фонду
@@ -195,7 +195,7 @@ function Gallery() {
                 - За період повномасштабної війни з 24.02.22 по 01.05.2022 на
                 підтримку ЗСУ було витрачено більше{' '}
                 <strong className="text-black whitespace-nowrap">
-                  1,5 млн грн
+                  2 млн грн
                 </strong>{' '}
                 <em>
                   (знаходимо все: починаючи від медикаментів та взуття й
@@ -209,40 +209,43 @@ function Gallery() {
               </p>
             </div>
           </div>
-          <Carousel
-            {...carouselProps}
-            onSwipeEnd={handleSwipeEnd}
-            className="sm:hidden"
-          >
-            {list.map((item, index) => (
-              <div key={index} className="relative">
-                {item.type === 'video' ? (
-                  <>
-                    {item.isOpen ? (
-                      <video
-                        src={item.url}
-                        controls
-                        autoPlay
-                        className="w-full h-full"
-                      />
-                    ) : (
-                      <>
-                        <img src={item.thumbnail} alt="" className="relative" />
-                        <PlayIcon
-                          className="w-16 h-16 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-gray-300 group-hover:text-white"
-                          onClick={e => {
-                            e.stopPropagation()
-                            handlePlay(index)
-                          }}
-                        />
-                      </>
-                    )}
-                  </>
+          {list
+            .filter(item => item.type === 'video')
+            .map((item, index) => (
+              <div key={index} className="sm:hidden relative mb-6">
+                {item.isOpen ? (
+                  <video
+                    src={item.url}
+                    controls
+                    autoPlay
+                    className="w-full h-full"
+                  />
                 ) : (
-                  <img src={item.thumbnail || item.url} alt="" />
+                  <>
+                    <img src={item.thumbnail} alt="" className="relative" />
+                    <PlayIcon
+                      className="w-16 h-16 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-gray-300 group-hover:text-white"
+                      onClick={e => {
+                        e.stopPropagation()
+                        handlePlay(index)
+                      }}
+                    />
+                  </>
                 )}
               </div>
             ))}
+          <Carousel
+            {...carouselProps}
+            onSwipeEnd={handleSwipeEnd}
+            className="sm:hidden -mx-4"
+          >
+            {list
+              .filter(item => item.type === 'photo')
+              .map((item, index) => (
+                <div key={index} className="relative">
+                  <img src={item.thumbnail || item.url} alt="" />
+                </div>
+              ))}
           </Carousel>
           <ul
             role="list"
