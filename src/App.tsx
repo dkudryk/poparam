@@ -5,6 +5,7 @@ import Note from './components/Note'
 import Gallery from './components/Gallery'
 import Partners from './components/Partners'
 import Requisites from './components/Requisites'
+import Footer from './components/Footer'
 
 export default function Example() {
   return (
@@ -18,6 +19,7 @@ export default function Example() {
           <Gallery />
           <Partners />
           <Requisites />
+          <Footer />
         </main>
       </div>
     </div>

@@ -1,4 +1,6 @@
 import AboutImage from '../assets/about.jpg'
+import Instagram from '../assets/instagram'
+import { INSTAGRAM_NESTERKO } from '../const'
 
 function Note() {
   return (
@@ -37,13 +39,21 @@ function Note() {
                   кожного дня! <br /> Адже нам точно є за що боротися!
                 </p>
               </div>
-              <footer className="mt-6">
-                <p className="text-base font-medium text-sky-500">
-                  Антон Нестерко
-                </p>
-                <p className="text-base font-medium text-yellow-300">
-                  Засновник фонду «ПоПарам»
-                </p>
+              <footer className="mt-6 space-x-10 flex items-center">
+                <div className="text-base font-medium">
+                  <p className="text-sky-500">Антон Нестерко</p>
+                  <p className="text-yellow-300">Засновник фонду «ПоПарам»</p>
+                </div>
+                {INSTAGRAM_NESTERKO && (
+                  <a
+                    href={INSTAGRAM_NESTERKO}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="w-8 h-8 md:w-10 md:h-10"
+                  >
+                    <Instagram />
+                  </a>
+                )}
               </footer>
             </blockquote>
           </div>

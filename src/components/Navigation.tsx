@@ -1,16 +1,12 @@
 import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
-import { ExternalLinkIcon } from '@heroicons/react/solid'
 
 import BlackLogo from '../assets/logo-black.jpg'
 import WhiteLogo from '../assets/logo-white.jpg'
-
-const navigation = [
-  { name: 'Історія створення', href: '#history' },
-  { name: 'Діяльність фонду', href: '#gallery' },
-  { name: 'Стати партнером', href: '#partners' },
-]
+import Instagram from '../assets/instagram'
+import { INSTAGRAM, NAVIGATION, PHONE } from '../const'
+import { preparePhone } from '../helpers'
 
 function Navigation() {
   const handleClick = (href: string) => {
@@ -42,8 +38,8 @@ function Navigation() {
                 </Popover.Button>
               </div>
             </div>
-            <div className="hidden space-x-8 md:flex md:ml-4 lg:ml-10">
-              {navigation.map(item => (
+            <div className="hidden space-x-8 md:flex md:ml-10">
+              {NAVIGATION.map(item => (
                 <a
                   key={item.name}
                   href={item.href}
@@ -53,25 +49,31 @@ function Navigation() {
                     handleClick(item.href)
                   }}
                 >
-                  {item.name}
+                  <span className="hidden lg:inline">{item.name}</span>
+                  <span className="lg:hidden">{item.short}</span>
                 </a>
               ))}
             </div>
           </div>
           <div className="hidden md:flex md:items-center md:space-x-6">
-            <a
-              href="https://www.instagram.com/anton.nesterko"
-              className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <span className="hidden lg:inline-block">Дізнатись більше</span>
-              <span className="lg:hidden">Більше</span>
-              <ExternalLinkIcon
-                className="-mr-1 ml-3 h-5 w-5 text-gray-400"
-                aria-hidden="true"
-              />
-            </a>
+            {PHONE && (
+              <a
+                href={preparePhone(PHONE)}
+                className="font-bold text-xl text-white"
+              >
+                {PHONE}
+              </a>
+            )}
+            {INSTAGRAM && (
+              <a
+                href={INSTAGRAM}
+                target="_blank"
+                rel="noreferrer"
+                className="w-8 h-8"
+              >
+                <Instagram />
+              </a>
+            )}
           </div>
         </nav>
       </div>
@@ -103,7 +105,7 @@ function Navigation() {
             </div>
             <div className="pt-5 pb-6">
               <div className="px-2 space-y-1">
-                {navigation.map(item => (
+                {NAVIGATION.map(item => (
                   <a
                     key={item.name}
                     href={item.href}
@@ -117,19 +119,25 @@ function Navigation() {
                   </a>
                 ))}
               </div>
-              <div className="mt-6 px-5">
-                <a
-                  href="https://www.instagram.com/anton.nesterko"
-                  className="flex items-center justify-center w-full py-3 px-4 rounded-md shadow bg-gradient-to-r text-white font-medium bg-gray-600 hover:bg-gray-700"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Дізнатись більше
-                  <ExternalLinkIcon
-                    className="-mr-1 ml-3 h-5 w-5 text-gray-400"
-                    aria-hidden="true"
-                  />
-                </a>
+              <div className="mt-6 px-5 flex items-center justify-between">
+                {INSTAGRAM && (
+                  <a
+                    href={INSTAGRAM}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="w-8 h-8"
+                  >
+                    <Instagram />
+                  </a>
+                )}
+                {PHONE && (
+                  <a
+                    href={preparePhone(PHONE)}
+                    className="font-bold text-xl text-black"
+                  >
+                    {PHONE}
+                  </a>
+                )}
               </div>
             </div>
           </div>
