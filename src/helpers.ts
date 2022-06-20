@@ -1,5 +1,13 @@
 export const preparePhone = (phone: string) => {
-  return 'tel:' + phone.replaceAll(' ', '').replaceAll('-', '')
+  return 'tel:' + prepareInputPhone(phone)
+}
+
+export const prepareInputPhone = (phone: string) => {
+  return phone
+    .replaceAll(' ', '')
+    .replaceAll('-', '')
+    .replaceAll('(', '')
+    .replaceAll(')', '')
 }
 
 export const prepareEmail = (email: string) => {

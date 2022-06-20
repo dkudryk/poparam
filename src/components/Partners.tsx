@@ -3,10 +3,10 @@ import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { CheckCircleIcon } from '@heroicons/react/solid'
 import { useState } from 'react'
+import { CHAT_IDS } from '../const'
 
 function Partners() {
   const SEND_MESSAGE_URL = `https://api.telegram.org/bot${process.env.REACT_APP_TOKEN}/sendMessage`
-  const CHAT_IDS = [296750799]
   const initialValues = {
     name: '',
     phone: '',
