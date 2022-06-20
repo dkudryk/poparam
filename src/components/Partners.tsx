@@ -10,15 +10,16 @@ function Partners() {
   const initialValues = {
     name: '',
     phone: '',
+    text: '',
   }
   const validationSchema = Yup.object({
-    name: Yup.string().required('Обов`язкове поле'),
     phone: Yup.string()
       .required('Обов`язкове поле')
       .matches(
         /^\+?3?8?(0\d{9})$/,
         'Невалідний формат(має бути: +380991234567 aбо 0991234567)',
       ),
+    text: Yup.string().required('Обов`язкове поле'),
   })
   const [success, setSuccess] = useState(false)
   const {
@@ -35,9 +36,10 @@ function Partners() {
     validationSchema,
     onSubmit: async (values, { setSubmitting }) => {
       const text = [
-        '<u><b>НОВИЙ ЗАПИТ НА ЗВОРОТНІЙ ЗВ`ЯЗОК</b></u>',
-        `<b>Ім'я:</b> ${values.name}`,
-        `<b>Телефон:</b> <a href="">${values.phone}</a>`,
+        '<u><b>НОВЕ ПОВІДОМЛЕННЯ</b></u>',
+        ...(values.name ? [`<b>Ім'я:</b> ${values.name}`] : []),
+        `<b>Телефон:</b> ${values.phone}`,
+        `<b>Текст:</b> ${values.text}`,
       ].join('\n')
       await Promise.all(
         CHAT_IDS.map(
@@ -68,7 +70,7 @@ function Partners() {
           alt=""
         />
       </div>
-      <div className="relative mx-auto max-w-md px-4 py-12 sm:max-w-7xl sm:px-6 sm:py-20 md:py-28 lg:px-8 lg:py-32">
+      <div className="relative mx-auto max-w-md px-4 py-12 sm:max-w-7xl sm:px-6 sm:py-16 md:py-24 lg:px-8 lg:py-28">
         <div className="md:ml-auto md:w-1/2 md:pl-10">
           <div className="text-base text-gray-300 sm:text-xl lg:text-lg xl:text-xl">
             <p className="mb-4">
@@ -83,15 +85,39 @@ function Partners() {
             </p>
           </div>
           <h3 className="mt-12 font-bold text-base sm:text-xl lg:text-lg xl:text-xl text-gray-300">
-            Напишіть нам, і ми з вами зв&apos;яжемось:
+            Є запитання або пропозиція? Напишіть нам:
           </h3>
           <form onSubmit={handleSubmit} className="mt-8 grid grid-cols-2 gap-6">
+            <div className="col-span-2 sm:col-span-1">
+              <label
+                htmlFor="phone"
+                className="block text-sm font-medium text-sky-500"
+              >
+                Ваш телефон
+              </label>
+              <div className="mt-1">
+                <input
+                  type="text"
+                  name="phone"
+                  id="phone"
+                  placeholder="+380991234567"
+                  className="shadow-sm focus:ring-sky-500 focus:border-sky-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.phone}
+                  disabled={isSubmitting}
+                />
+                {errors.phone && touched.phone && (
+                  <p className="mt-2 text-xs text-red-500">{errors.phone}</p>
+                )}
+              </div>
+            </div>
             <div className="col-span-2 sm:col-span-1">
               <label
                 htmlFor="name"
                 className="block text-sm font-medium text-sky-500"
               >
-                Ваше ім&apos;я
+                Ім&apos;я
               </label>
               <div className="mt-1">
                 <input
@@ -110,28 +136,26 @@ function Partners() {
                 )}
               </div>
             </div>
-
-            <div className="col-span-2 sm:col-span-1">
+            <div className="col-span-2">
               <label
-                htmlFor="phone"
+                htmlFor="text"
                 className="block text-sm font-medium text-yellow-300"
               >
-                Телефон
+                Повідомлення
               </label>
               <div className="mt-1">
-                <input
-                  type="text"
-                  name="phone"
-                  id="phone"
-                  placeholder="+380991234567"
-                  className="shadow-sm focus:ring-yellow-300 focus:border-yellow-300 block w-full sm:text-sm border-gray-300 rounded-md"
+                <textarea
+                  name="text"
+                  id="text"
+                  placeholder="Напишіть ваше запитання або пропозицію"
+                  className="h-20 shadow-sm focus:ring-yellow-300 focus:border-yellow-300 block w-full sm:text-sm border-gray-300 rounded-md resize-none"
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  value={values.phone}
+                  value={values.text}
                   disabled={isSubmitting}
                 />
-                {errors.phone && touched.phone && (
-                  <p className="mt-2 text-xs text-red-500">{errors.phone}</p>
+                {errors.text && touched.text && (
+                  <p className="mt-2 text-xs text-red-500">{errors.text}</p>
                 )}
               </div>
             </div>
