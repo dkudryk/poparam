@@ -1,38 +1,26 @@
+import { useTranslation } from 'react-i18next'
+
 function History() {
+  const { t } = useTranslation()
   return (
     <div id="history" className="bg-gray-50">
       <div className="max-w-6xl mx-auto py-24 px-4 sm:pt-32 sm:pb-40 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="mb-12 text-3xl font-extrabold sm:text-4xl sm:tracking-tight lg:text-5xl">
-            Історія створення фонду «ПоПарам»
+            {t('The history of the foundation «PoParam»')}
           </h2>
           <div className="text-base text-gray-500 sm:text-xl lg:text-lg xl:text-xl">
-            <p className="mb-8">
-              Благодійний фонд «ПоПарам» був створений у червні 2021 року для
-              підтримки талановитих танцівників України та надання можливостей
-              для танцювального розвитку нашій талановитій молоді. За більш ніж
-              пів року існування понад 150 дітей з усієї країни отримали
-              танцювальний одяг та взуття, можливість брати участь у
-              танцювальних заходах. Ми встигли заручитися підтримкою як
-              спеціалізованих професійних брендів, так і багатьох клубів і
-              міжнародної спільноти для привернення уваги до різноманітних
-              потреб танцювального світу України.
-            </p>
-            <p className="mb-8">
-              Але з 24 лютого 2022 року Україна захищає свої території у
-              жорстокій війні з росією і тому ми прийняли рішення призупинити
-              підтримку танцювальної спільноти та направити всі свої сили та
-              можливості задля забезпечення необхідним української армії, наших
-              військових хлопців та дівчат на передовій.
-            </p>
+            <p className="mb-8">{t('history1')}</p>
+            <p className="mb-8">{t('history2')}</p>
             <h3 className="text-lg font-extrabold sm:text-xl sm:tracking-tight lg:text-2xl text-black">
-              Місія
+              {t('Our mission')}
             </h3>
             <p>
-              Дій швидко!
+              {t('Act as quickly as you can!')}
               <br />
-              Кожен своєчасно виконаний запит збереже життя та наблизить до
-              перемоги.
+              {t(
+                'Each timely completed request will save lives and bring you closer to victory!',
+              )}
             </p>
           </div>
         </div>

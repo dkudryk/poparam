@@ -1,9 +1,12 @@
+import { useTranslation } from 'react-i18next'
+
 export default function Requisites() {
+  const { t } = useTranslation()
   return (
     <div className="bg-gray-50">
       <div className="max-w-7xl mx-auto text-center py-20 px-4 sm:px-6 lg:py-24 lg:px-8">
         <h2 className="mb-10 sm:mb-14 text-3xl font-extrabold sm:text-4xl sm:tracking-tight lg:text-5xl">
-          Реквізити. Благодійний фонд «ПоПарам»
+          {t('You can also help us! PoParam Charitable Foundation')}
         </h2>
         <div className="space-y-10 sm:space-y-20">
           <div>
@@ -30,33 +33,33 @@ export default function Requisites() {
                   </a>
                 </p>
                 <p>
-                  Призначення платежу: <br className="block sm:hidden" />
-                  «Благодійна допомога»
+                  {t('Purpose of payment')}: <br className="block sm:hidden" />«
+                  {t('Charity')}»
                 </p>
                 <p>
-                  БО Благодійний фонд ПоПарам
+                  {t('BO PoParam Charitable Foundation')}
                   <br />
-                  ЭДРПОУ - 44206864
+                  {t('EDRPOU')} - 44206864
                 </p>
               </div>
               <div className="space-y-4 sm:space-y-8">
                 <p>
                   <span className="text-lg font-extrabold sm:text-xl sm:tracking-tight lg:text-2xl text-black">
-                    Гривня
+                    {t('UAH')}
                   </span>
                   <br />
                   UA 13 334851 00000000 26004175924
                 </p>
                 <p>
                   <span className="text-lg font-extrabold sm:text-xl sm:tracking-tight lg:text-2xl text-black">
-                    Долар
+                    {t('Dollar')}
                   </span>
                   <br />
                   UA 13 334851 00000000 26004175924
                 </p>
                 <p>
                   <span className="text-lg font-extrabold sm:text-xl sm:tracking-tight lg:text-2xl text-black">
-                    Євро
+                    {t('Euro')}
                   </span>
                   <br />
                   UA 13 334851 00000000 26004175924

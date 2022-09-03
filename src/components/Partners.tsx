@@ -4,8 +4,10 @@ import * as Yup from 'yup'
 import { CheckCircleIcon } from '@heroicons/react/solid'
 import { useState } from 'react'
 import { CHAT_IDS } from '../const'
+import { useTranslation } from 'react-i18next'
 
 function Partners() {
+  const { t } = useTranslation()
   const SEND_MESSAGE_URL = `https://api.telegram.org/bot${process.env.REACT_APP_TOKEN}/sendMessage`
   const initialValues = {
     name: '',
@@ -14,12 +16,12 @@ function Partners() {
   }
   const validationSchema = Yup.object({
     phone: Yup.string()
-      .required('Обов`язкове поле')
+      .required(t('Required field'))
       .matches(
         /^\+?3?8?(0\d{9})$/,
-        'Невалідний формат(має бути: +380991234567 aбо 0991234567)',
+        t('Invalid format (must be: +380991234567 or 0991234567)'),
       ),
-    text: Yup.string().required('Обов`язкове поле'),
+    text: Yup.string().required(t('Required field')),
   })
   const [success, setSuccess] = useState(false)
   const {
@@ -73,19 +75,11 @@ function Partners() {
       <div className="relative mx-auto max-w-md px-4 py-12 sm:max-w-7xl sm:px-6 sm:py-16 md:py-24 lg:px-8 lg:py-28">
         <div className="md:ml-auto md:w-1/2 md:pl-10">
           <div className="text-base text-gray-300 sm:text-xl lg:text-lg xl:text-xl">
-            <p className="mb-4">
-              Стати партнером може кожен підприємець, який розумієте, що тільки
-              стабільна допомога бізнесу військовим врятує життя та бізнес.
-            </p>
-            <p>
-              Як що ви, як власник бізнесу відчуваєте причетність до війни в
-              Україні, та не можете залишатися осторонь, хочете жити та
-              працювати під мирним небом приєднуйтесь до фінансової підтримки
-              наших мужніх військових.
-            </p>
+            <p className="mb-4">{t('partners1')}</p>
+            <p>{t('partners2')}</p>
           </div>
           <h3 className="mt-12 font-bold text-base sm:text-xl lg:text-lg xl:text-xl text-gray-300">
-            Є запитання або пропозиція? Напишіть нам:
+            {t('Any questions or propositions? Write us!')}
           </h3>
           <form onSubmit={handleSubmit} className="mt-8 grid grid-cols-2 gap-6">
             <div className="col-span-2 sm:col-span-1">
@@ -93,7 +87,7 @@ function Partners() {
                 htmlFor="phone"
                 className="block text-sm font-medium text-sky-500"
               >
-                Ваш телефон
+                {t('Your phone number')}
               </label>
               <div className="mt-1">
                 <input
@@ -117,14 +111,14 @@ function Partners() {
                 htmlFor="name"
                 className="block text-sm font-medium text-sky-500"
               >
-                Ім&apos;я
+                {t('First name')}
               </label>
               <div className="mt-1">
                 <input
                   type="text"
                   name="name"
                   id="name"
-                  placeholder="Введіть ваше ім'я"
+                  placeholder={t('Enter your name')}
                   className="shadow-sm focus:ring-sky-500 focus:border-sky-500 block w-full sm:text-sm border-gray-300 rounded-md"
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -141,13 +135,13 @@ function Partners() {
                 htmlFor="text"
                 className="block text-sm font-medium text-yellow-300"
               >
-                Повідомлення
+                {t('Message')}
               </label>
               <div className="mt-1">
                 <textarea
                   name="text"
                   id="text"
-                  placeholder="Напишіть ваше запитання або пропозицію"
+                  placeholder={t('Write your message or proposition')}
                   className="h-20 shadow-sm focus:ring-yellow-300 focus:border-yellow-300 block w-full sm:text-sm border-gray-300 rounded-md resize-none"
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -165,7 +159,7 @@ function Partners() {
                 className="flex items-center justify-center w-full py-3 px-4 rounded-md shadow bg-gradient-to-r text-white font-medium bg-gray-600 hover:bg-gray-700"
                 disabled={isSubmitting}
               >
-                Відправити
+                {t('Send')}
               </button>
             </div>
             {success && (
@@ -180,7 +174,7 @@ function Partners() {
                     </div>
                     <div className="ml-2 overflow-hidden">
                       <p className="text-sm font-medium text-green-800 truncate">
-                        Відправлено. Дякуємо!
+                        {t('Sent. Thank you!')}
                       </p>
                     </div>
                   </div>

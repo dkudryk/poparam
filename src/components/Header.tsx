@@ -1,6 +1,8 @@
+import { useTranslation } from 'react-i18next'
 import HeaderImage from '../assets/header.jpg'
 
 function Header() {
+  const { t } = useTranslation()
   return (
     <div className="pt-0 pb-16 md:py-10 bg-black lg:overflow-hidden">
       <div className="mx-auto max-w-7xl lg:px-8">
@@ -16,16 +18,8 @@ function Header() {
           </div>
           <div className="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 text-center lg:px-0 lg:text-left lg:flex lg:items-center z-10">
             <div className="text-base text-gray-300 sm:text-xl lg:text-lg xl:text-xl">
-              <p className="mb-8">
-                Ми – благодійна організація, фонд «ПоПарам», що активно
-                займається допомогою та підтримкою наших військових на передовій
-                та найгарячіших точках воєнних дій в Україні.
-              </p>
-              <p>
-                У нас найкоротший шлях від отримання військового запиту до
-                виконання. Усвідомлена та системна допомога захисникам – наш
-                спільний шлях до звільнення України!{' '}
-              </p>
+              <p className="mb-8">{t('header1')}</p>
+              <p>{t('header2')}</p>
             </div>
           </div>
         </div>

@@ -5,6 +5,8 @@ import '../../node_modules/react-responsive-carousel/lib/styles/carousel.css'
 
 import { PlayIcon } from '@heroicons/react/solid'
 import { createPortal } from 'react-dom'
+import { useTranslation } from 'react-i18next'
+import { CALCULATED } from '../const'
 
 const data = [
   {
@@ -138,6 +140,7 @@ function Gallery() {
     })),
   )
   const [currentIndex, setCurrentIndex] = useState(0)
+  const { t } = useTranslation()
 
   const handleClick = (index: number) => {
     setCurrentIndex(index)
@@ -184,29 +187,19 @@ function Gallery() {
         <div className="space-y-12 sm:space-y-24">
           <div className="max-w-6xl mx-auto">
             <h2 className="mb-12 text-3xl font-extrabold sm:text-4xl sm:tracking-tight lg:text-5xl text-center">
-              Діяльність фонду «ПоПарам»
+              {t('Activities of the «PoParam» fundation')}
             </h2>
             <div className="text-base text-gray-500 sm:text-xl lg:text-lg xl:text-xl">
+              <p className="mb-4">- {t('gallery1')};</p>
               <p className="mb-4">
-                - Приймаємо заявки на потреби безпосередньо від бійців Збройних
-                Сил та Національної Гвардії України;
-              </p>
-              <p className="mb-4">
-                - За період повномасштабної війни з 24.02.22 по 01.05.2022 на
-                підтримку ЗСУ було витрачено більше{' '}
+                - {t('gallery2')}{' '}
                 <strong className="text-black whitespace-nowrap">
-                  2 млн грн
+                  {CALCULATED} {t('million UAH')}
                 </strong>{' '}
-                <em>
-                  (знаходимо все: починаючи від медикаментів та взуття й
-                  закінчуючи технічними приладами)
-                </em>
+                {t('gallery2Postfix')} <em>{t('gallery2Description')}</em>;
               </p>
-              <p className="mb-4">- Куплено 4 автомобілі на передову; </p>
-              <p className="mb-4">
-                - Кожного дня публікуємо звіти про покупки, щоб люди знали, куди
-                ми витрачаємо кожну копійку.
-              </p>
+              <p className="mb-4">- {t('gallery3')};</p>
+              <p className="mb-4">- {t('gallery4')}.</p>
             </div>
           </div>
           {list

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import Facebook from '../assets/facebook'
 import Instagram from '../assets/instagram'
 import Telegram from '../assets/telegram'
@@ -6,11 +7,13 @@ import { EMAIL, FACEBOOK, INSTAGRAM, PHONE, TELEGRAM, VIBER } from '../const'
 import { prepareEmail, preparePhone } from '../helpers'
 
 export default function Footer() {
+  const { t } = useTranslation()
   const year = new Date().getFullYear()
   return (
     <div className="py-12 bg-black text-center">
       <div className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-sky-500">
-        <span className="text-yellow-300">Разом</span> до перемоги!
+        <span className="text-yellow-300">{t('Together')}</span>{' '}
+        {t('till victory')}!
       </div>
       <div className="py-5 md:py-10 space-y-2 md:space-y-0 md:space-x-6 flex flex-col md:flex-row items-center justify-center">
         {PHONE && (
@@ -67,7 +70,7 @@ export default function Footer() {
         </div>
       </div>
       <a href="https://poparam.com.ua/" className="text-gray-400">
-        &copy; {year} Благодійний фонд «ПоПарам»
+        &copy; {year} {t('PoParam Charitable Foundation')}
       </a>
     </div>
   )

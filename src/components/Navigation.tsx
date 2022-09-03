@@ -1,4 +1,5 @@
-import { Fragment } from 'react'
+import { Fragment, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Popover, Transition } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
 
@@ -9,11 +10,26 @@ import { INSTAGRAM, NAVIGATION, PHONE } from '../const'
 import { preparePhone } from '../helpers'
 
 function Navigation() {
+  const { t, i18n } = useTranslation()
+
+  const oppositeLanguage = i18n.language === 'en' ? 'ua' : 'en'
+
+  useEffect(() => {
+    document.title = t('PoParam Charitable Foundation. Together till victory!')
+    const metaDescription = document.querySelector('meta[name="description"]')
+    metaDescription && metaDescription.setAttribute('content', t('description'))
+  }, [oppositeLanguage])
+
   const handleClick = (href: string) => {
     document
       .getElementById(href.replace('#', ''))
       ?.scrollIntoView({ behavior: 'smooth', inline: 'nearest' })
   }
+
+  const handleChangeLang = () => {
+    i18n.changeLanguage(oppositeLanguage)
+  }
+
   return (
     <Popover as="header" className="relative">
       <div className="bg-black pt-6">
@@ -49,13 +65,13 @@ function Navigation() {
                     handleClick(item.href)
                   }}
                 >
-                  <span className="hidden lg:inline">{item.name}</span>
-                  <span className="lg:hidden">{item.short}</span>
+                  <span className="hidden lg:inline">{t(item.name)}</span>
+                  <span className="lg:hidden">{t(item.short)}</span>
                 </a>
               ))}
             </div>
           </div>
-          <div className="hidden md:flex md:items-center md:space-x-6">
+          <div className="hidden md:flex md:items-center md:space-x-4">
             {PHONE && (
               <a
                 href={preparePhone(PHONE)}
@@ -74,6 +90,13 @@ function Navigation() {
                 <Instagram />
               </a>
             )}
+            <div
+              onClick={handleChangeLang}
+              className="font-bold text-white hover:text-yellow-300 uppercase cursor-pointer"
+              title={`${t('Switch to')} ${oppositeLanguage.toUpperCase()}`}
+            >
+              {oppositeLanguage}
+            </div>
           </div>
         </nav>
       </div>
@@ -115,7 +138,7 @@ function Navigation() {
                       handleClick(item.href)
                     }}
                   >
-                    {item.name}
+                    {t(item.name)}
                   </a>
                 ))}
               </div>
