@@ -15,8 +15,8 @@ export default {
       gallery1:
         'We accept applications for needs directly from the soldiers of the Armed Forces and the National Guard of Ukraine',
       gallery2:
-        'During the period of the full-scale war from 24.02.22 to 23.06.2022, more than',
-      gallery2Postfix: 'were spent to support the Armed Forces',
+        'During the period of the full-scale war from 24.02.22 to 20.03.2024, more than',
+      gallery2Postfix: 'were collected and spent to support the Armed Forces',
       gallery2Description:
         '(we find everything: from medicines and shoes to technical devices)',
       gallery3: 'Bought 4 cars for the hot spot',
@@ -62,7 +62,7 @@ export default {
       gallery1:
         'Приймаємо заявки на потреби безпосередньо від бійців Збройних Сил та Національної Гвардії України',
       gallery2:
-        'За період повномасштабної війни з 24.02.22 по 23.06.2022 на підтримку ЗСУ було витрачено більше',
+        'За період повномасштабної війни з 24.02.22 по 20.03.2024 на підтримку ЗСУ було зібрано та витрачено більше',
       'million UAH': 'млн грн',
       gallery2Postfix: '',
       gallery2Description:

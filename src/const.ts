@@ -15,4 +15,4 @@ export const FACEBOOK = ''
 export const TELEGRAM = `https://t.me/${prepareInputPhone(PHONE)}`
 export const VIBER = `viber://chat?number=${prepareInputPhone(PHONE)}`
 
-export const CALCULATED = 6
+export const CALCULATED = 12.5
