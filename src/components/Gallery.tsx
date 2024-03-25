@@ -187,7 +187,7 @@ function Gallery() {
         <div className="space-y-12 sm:space-y-24">
           <div className="max-w-6xl mx-auto">
             <h2 className="mb-12 text-3xl font-extrabold sm:text-4xl sm:tracking-tight lg:text-5xl text-center">
-              {t('Activities of the «PoParam» fundation')}
+              {t('Activities of the «PoParam» foundation')}
             </h2>
             <div className="text-base text-gray-500 sm:text-xl lg:text-lg xl:text-xl">
               <p className="mb-4">- {t('gallery1')};</p>
